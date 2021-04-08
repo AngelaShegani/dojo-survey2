@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <form action="/results" method="POST">
+        {% csrf_token %}
+        <p>Your name:<input type="text" id="name" name="name"></p>
+        <div>
+            <label for="location">Dojo Location:</label>
+            <select name="location" id="location">
+                <option value="San Jose">San Jose</option>
+                <option value="Tirana">Tirana</option>
+                <option value="California">California</option>
+                <option value="Remote">Remote</option>
+            </select>
+
+        </div>
+        <div>
+            <label for="language">Favorite Language:</label>
+            <select name="language" id="language">
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Java">Java</option>
+            </select>
+        </div>
+        <p>Comment(optional):</p>
+        <p><input type="text" id="comment" name="comment"></p>
+        
+        <p>Select your favorite framework:</p>
+        <div>
+            <input type="radio" id="radio" name="radio" value="Flask" checked>
+            <label for="flask">Flask</label>
+        </div>
+
+        <div>
+            <input type="radio" id="radio" name="radio" value="Django">
+            <label for="django">Django</label>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
